@@ -15,7 +15,7 @@
 
 
 
-//Sumar y optenner el numero de clientes mediante SUM
+//Sumar y optener el numero de clientes mediante SUM
 var totalClients = Clients.ToList().Sum(s =>{
 	if(s.Name != null)
 		return 1;
@@ -27,14 +27,16 @@ var totalClients = Clients.ToList().Sum(s =>{
 totalClients.Dump();
 
 
-//Agrupar OrderDetails por el Order id los cuales sean pares 
-var orders = from o in OrderDetails select o;
+//Optener total de una Orden
 
-orders.Dump();
+var orderDetails = from o in OrderDetails select o;
 
-var TotalDeOrdenes = from c in OrderDetails.ToList()  group c by c.Order_id % 2 == 0 ;
+orderDetails.Dump();
 
-TotalDeOrdenes.Dump();
+var totalOrderDetails = (from od in OrderDetails.ToList()
+                         group od by od.Order_id into g
+                         select g.Sum(od => od.Unit_price * od.Quantity));
+totalOrderDetails.Dump();
 
 
 
@@ -54,8 +56,4 @@ totalPerUser.Dump();
 
 (from o in Orders group o by o.User_id).Dump();
 
-    foreach (var item in totalPerUser)
-    {
-        Console.WriteLine($"User ID: {item.UserId}, Total Amount: {item.TotalAmount}");
-    }
 
