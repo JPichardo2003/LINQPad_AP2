@@ -13,6 +13,20 @@
   <AutoDumpHeading>true</AutoDumpHeading>
 </Query>
 
+// OrderBy in Query Syntax C#
+IList<Users> listaUsuarios = Users.ToList();
+
+var orderByResult = from s in listaUsuarios
+                   orderby s.Id 
+                   select s;
+
+var orderByDescendingResult = from s in listaUsuarios
+                   orderby s.Id descending
+                   select s;
+
+orderByResult.Dump("Resultado con OrderBy descendentemente");
+
+
 //ORDENANDO DE MANERA ASCENDENTE
 IList<Products> listaUsuarios2 = Products.ToList();
 
