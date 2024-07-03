@@ -49,4 +49,4 @@ duplicates.Dump("Duplicados (Nombres y correos electrónicos)");
 
 var uniqueList = concatenatedList.Distinct();
 
-uniqueList.Dump("Lista concatenada (Nombres y correos electrónicos)");
+uniqueList.Dump("Lista concatenada sin duplicados (Nombres y correos electrónicos)");
