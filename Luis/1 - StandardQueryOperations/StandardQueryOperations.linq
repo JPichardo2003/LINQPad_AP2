@@ -26,16 +26,12 @@ userListMethod.Dump();
 
 //LINQ Query Syntax
 
-var UserListQuery = (from user in Users
-             select new 
-             {
-                 Username = user.Username,
-                 Email = user.Email
-             }).ToList();
+var UserListQuery = from user in Users
+ select new 
+ {
+     Username = user.Username,
+     Email = user.Email
+ };
 
 UserListQuery.Dump();
 
-/*
-Select username, email
-FROM Users;
-	*/

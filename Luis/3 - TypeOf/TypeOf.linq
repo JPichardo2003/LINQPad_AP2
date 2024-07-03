@@ -22,7 +22,7 @@ IList mixedList = new ArrayList();
 
 		//Filtrar Usuarios
 
-        var userResult = from s in mixedList.OfType<Users>()
+        var userResult = from s in mixedList.OfType<String>()
                          select s;
 
 		//Filtrar Clientes
@@ -41,7 +41,7 @@ IList mixedList = new ArrayList();
                           select s;
 
         foreach (var user in userResult)
-            Console.WriteLine(user.Name);
+            Console.WriteLine(user);
 
         foreach (var client in clientResult)
             Console.WriteLine(client.Name);

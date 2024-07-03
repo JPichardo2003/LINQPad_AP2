@@ -15,27 +15,30 @@
 // .Where con LINQ Method Syntax
 
 var whereMethod = Products
-    .Where(product => product.Price > 1000 && product.Stock > 20)
-    .Select(product => new 
+    .Where(product => product.Price > 1000)
+	.Where(product => product.Stock > 20)
+    .Select (product => new 
     {
         Description = product.Description,
         Price = product.Price,
-        Stock = product.Stock
-    })
-    .ToList();
+        Stock = product.Stock,
+		InventoryValue = product.Stock * product.Price
+    });
+    
 
 whereMethod.Dump();
 
 // .Where con LINQ Query Syntax
 
-var whereQuery = (from product in Products
+var whereQuery = from product in Products
              where product.Price < 1000 && product.Stock > 20
              select new 
              {
                  Description = product.Description,
                  Price = product.Price,
-                 Stock = product.Stock
-             }).ToList();
+                 Stock = product.Stock,
+				 InventoryValue = product.Stock * product.Price
+             };
 
 whereQuery.Dump();
 
