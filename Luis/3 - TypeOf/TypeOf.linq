@@ -20,14 +20,22 @@ IList mixedList = new ArrayList();
         mixedList.Add("Esto no se va a imprimir");
         mixedList.Add(42);
 
+		//Filtrar Usuarios
+
         var userResult = from s in mixedList.OfType<Users>()
                          select s;
 
+		//Filtrar Clientes
+					
         var clientResult = from s in mixedList.OfType<Client>()
                            select s;
 
+		//Filtrar Productos
+
         var productResult = from s in mixedList.OfType<Products>()
                             select s;
+
+		//Filtrar Ordenes
 
         var orderResult = from s in mixedList.OfType<Orders>()
                           select s;
