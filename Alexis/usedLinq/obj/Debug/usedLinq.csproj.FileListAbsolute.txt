@@ -1,0 +1,7 @@
+C:\Users\syste\source\repos\usedLinq\usedLinq\bin\Debug\usedLinq.exe.config
+C:\Users\syste\source\repos\usedLinq\usedLinq\bin\Debug\usedLinq.exe
+C:\Users\syste\source\repos\usedLinq\usedLinq\bin\Debug\usedLinq.pdb
+C:\Users\syste\source\repos\usedLinq\usedLinq\obj\Debug\usedLinq.csproj.AssemblyReference.cache
+C:\Users\syste\source\repos\usedLinq\usedLinq\obj\Debug\usedLinq.csproj.CoreCompileInputs.cache
+C:\Users\syste\source\repos\usedLinq\usedLinq\obj\Debug\usedLinq.exe
+C:\Users\syste\source\repos\usedLinq\usedLinq\obj\Debug\usedLinq.pdb
