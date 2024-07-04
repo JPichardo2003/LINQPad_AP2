@@ -33,7 +33,7 @@ ClientEmails.Dump();
 var userDictionary = Users.ToDictionary(u => u.Username, u => u.Name);
 userDictionary.Dump();
 
-//Convertir órdenes a un IEnumerable de tipo anónimo con OrderId y Total:
+//Convertir órdenes a un IEnumerable con OrderId y Total:
 var orderSummaries = Orders.Select(o => new { OrderId = o.Id, Total = o.Total })
                            .AsEnumerable();
 orderSummaries.Dump();
