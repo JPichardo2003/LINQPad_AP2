@@ -27,20 +27,23 @@ var totalClients = Clients.ToList().Sum(s =>{
 totalClients.Dump();
 
 
-//Optener total de una Orden
+//Optener el monto total que se tiene en inventario de producto
 
-var orderDetails = from o in OrderDetails select o;
+var MontoEnInvetario = (from p in Products.ToList()
+						group p by p.Id into m
+						select new { producto = Products.FirstOrDefault(pn => pn.Id == m.Key),
+									 montoEnInvetario = m.Sum(s => s.Price * s.Stock)} 
+);
 
-orderDetails.Dump();
-
-var totalOrderDetails = (from od in OrderDetails.ToList()
-                         group od by od.Order_id into g
-                         select g.Sum(od => od.Unit_price * od.Quantity));
-totalOrderDetails.Dump();
-
+MontoEnInvetario.Dump();
 
 
-// Obtener el monto total por User_id con sum
+
+Products.Dump();
+
+
+
+// Obtener el monto total por User_id con sum 
  var totalPerUser = Orders.ToList()
         .GroupBy(o => o.User_id)
         .Select(g => new
