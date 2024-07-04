@@ -13,13 +13,14 @@
 </Query>
 
 //ThenBy & ThenByDescending
-IList<Orders> listaOrdenes = Orders.ToList();
 
 //ThenBy ASCENDENTEMENTE
-var resultadoThenBy = listaOrdenes.OrderBy(s => s.Client_id).ThenBy(o => o.Total);
+var resultadoThenBy = Orders.OrderBy(s => s.Client_id).ThenBy(o => o.Total);
 
 //ThenBy DESCENDENTEMENTE
-var resultadoThenByDesc = listaOrdenes.OrderBy(s => s.Client_id).ThenByDescending(o => o.Total);
+var resultadoThenByDesc = Orders.OrderBy(s => s.User_id).ThenByDescending(o => o.Total);
 
 
-resultadoThenBy.Dump("Resultado con Then by");
+resultadoThenBy.Dump("Resultado con Then by ascendente");
+
+resultadoThenByDesc.Dump("Resultado con Then by descendente");

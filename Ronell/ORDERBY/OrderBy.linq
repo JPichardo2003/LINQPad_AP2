@@ -14,39 +14,34 @@
 </Query>
 
 // OrderBy in Query Syntax C#
-IList<Users> listaUsuarios = Users.ToList();
-
-var orderByResult = from s in listaUsuarios
+var orderByResult = from s in Users
                    orderby s.Id 
                    select s;
+				   
+orderByResult.Dump("Resultado con OrderBy ascendentemente");
 
-var orderByDescendingResult = from s in listaUsuarios
+var orderByDescendingResult = from s in Users
                    orderby s.Id descending
                    select s;
 
-orderByResult.Dump("Resultado con OrderBy descendentemente");
+
+orderByDescendingResult.Dump("Resultado con OrderBy descendentemente");
 
 
 //ORDENANDO DE MANERA ASCENDENTE
-IList<Products> listaUsuarios2 = Products.ToList();
-
-var productosOrdenAscendente = listaUsuarios2.OrderBy(p => p.Description);
+var productosOrdenAscendente = Products.OrderBy(p => p.Description);
 
 productosOrdenAscendente.Dump("Resultado con OrderBy ascendentemente");
 
 
 //ORDENANDO DE MANERA DESCENDENTEMENTE
-IList<Products> listaProductos = Products.ToList();
-
-var productosOrdenDescendente = listaProductos.OrderByDescending(p => p.Description);
+var productosOrdenDescendente = Products.OrderByDescending(p => p.Description);
 
 productosOrdenDescendente.Dump("Resultado con OrderBy descendemente");
 
 
 //ORDENACION MULTIPLE CON LA SINTAXIS EN QUERY
-IList<Products> listaProductos3 = Products.ToList();
-
-var productosOrdenadosMultiple = from p in listaProductos3
+var productosOrdenadosMultiple = from p in Products
                    orderby p.Description, p.Price, p.Stock
                    select new { p.Description, p.Price, p.Stock };
 

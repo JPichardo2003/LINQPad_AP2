@@ -13,26 +13,21 @@
 </Query>
 
 //GroupBy in Query syntax
-IList<Products> listaProductos = Products.ToList();
+var resultado1 = from p in Products
+                    group p by p.Disable into g 
+        select new {
+			grupo = g.Key,
+			cantidad = g.Count(),
+			productos = g.Select(p => new{
+				cantidad = p.Description
+			})
+		};
 
-var resultado1 = from p in listaProductos
-                    group p by p.Description;
-        
-foreach (var descripcionP in resultado1)
-{
-    Console.WriteLine("Descripcion del producto: {0}", descripcionP.Key);
-             
-    foreach(Products p in descripcionP)
-        Console.WriteLine("Precio del producto: {0}", p.Price);
-		
-	Console.WriteLine();
-}
+resultado1.Dump();
 
 
 //GroupBy in method syntax
-IList<Products> listaProductos2 = Products.ToList(); 
-
-var resultado2 = listaProductos2.GroupBy(p => p.Description);
+var resultado2 = Products.GroupBy(p => p.Description);
 
 foreach (var descripcionPr in resultado2)
 {
@@ -40,20 +35,21 @@ foreach (var descripcionPr in resultado2)
              
     foreach(Products p in descripcionPr)  
         	Console.WriteLine("Precio del producto: {0}", p.Price);
+			
 	Console.WriteLine();
 }
 
 
 //ToLookup in method syntax
-IList<Users> listaUsuarios = Users.ToList(); 
-
-var resultadoToLookup = listaUsuarios.ToLookup(s => s.Email);
+var resultadoToLookup = Users.ToLookup(s => s.Email);
 
 foreach (var group in resultadoToLookup)
 {
     Console.WriteLine("Correo electronico: {0}", group.Key); 
              
-    foreach(Users u in group)  
+    foreach(Users u in group){
         Console.WriteLine("Nombre del usuario: {0}", u.Name);
 		Console.WriteLine();
+		Console.WriteLine(u.ToString());
+		}
 }
